@@ -11,23 +11,22 @@ document.getElementById("copyBtn").addEventListener("click", () => {
   count.innerText = totalCopy;
 });
 
-document.getElementById('all-card-box').addEventListener("click",(e)=>{
-    if(e.target.className.includes("call-button")){
-        const callBtn = e.target;
-        const coinBox = document.getElementById('coinBox').innerText;
+document.getElementById("all-card-box").addEventListener("click", (e) => {
+  if (e.target.className.includes("call-button")) {
+    const callBtn = e.target;
+    const coinBox = document.getElementById("coinBox").innerText;
 
-        if(Number(coinBox) >= 19){
-            const serviceName = 
+    if (Number(coinBox) >= 19) {
+      const serviceName =
         callBtn.parentNode.parentNode.children[1].children[0].innerText;
-        const serviceNumber = 
+      const serviceNumber =
         callBtn.parentNode.parentNode.children[2].children[0].innerText;
 
-        const time = new Date().toLocaleTimeString();
-        
+      const time = new Date().toLocaleTimeString();
 
-        const historyBox = document.getElementById('call-history-box');
-        const div = document.createElement('div');
-        div.innerHTML = `
+      const historyBox = document.getElementById("call-history-box");
+      const div = document.createElement("div");
+      div.innerHTML = `
         <div class="bg-gray-200 px-3 mt-2 rounded-lg w-full flex items-center justify-between ">
               <div class="my-3 w-[70%]">
                 <h1 class="text-lg font-semibold">
@@ -39,26 +38,35 @@ document.getElementById('all-card-box').addEventListener("click",(e)=>{
             </div>
         
         `;
-        historyBox.append(div);
+      historyBox.append(div);
 
-        
-        const currentCoin = Number(coinBox) - 20;
-        document.getElementById('coinBox').innerText = currentCoin;
-        // console.log(currentCoin);
-        alert(`Calling ${serviceName} ${serviceNumber}..`);
-        }else {
-            alert(`You have not enough coin`)
-        };
-        
-
-
-
-       
+      const currentCoin = Number(coinBox) - 20;
+      document.getElementById("coinBox").innerText = currentCoin;
+      // console.log(currentCoin);
+      alert(`Calling ${serviceName} ${serviceNumber}..`);
+    } else {
+      alert(`You have not enough coin for call at least 20 coin still`);
     }
-})
+  }
+});
 
+// Copy Button
+
+document.getElementById("copyBtn").addEventListener("click", () => {
+  console.log("ddddddddd")
+  const codeBox = document.getElementById("serviceContact");
+  const input = document.createElement("input");
+    document.body.append(input);
+
+    input.value = codeBox.innerText;
+
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+    alert("Code Copied")
+});
 // Clear Button
 
-document.getElementById("clear-history").addEventListener("click",()=>{
-   document.getElementById('call-history-box').innerText = '';
-})
+document.getElementById("clear-history").addEventListener("click", () => {
+  document.getElementById("call-history-box").innerText = "";
+});
