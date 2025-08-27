@@ -14,7 +14,10 @@ document.getElementById("copyBtn").addEventListener("click", () => {
 document.getElementById('all-card-box').addEventListener("click",(e)=>{
     if(e.target.className.includes("call-button")){
         const callBtn = e.target;
-        const serviceName = 
+        const coinBox = document.getElementById('coinBox').innerText;
+
+        if(Number(coinBox) >= 19){
+            const serviceName = 
         callBtn.parentNode.parentNode.children[1].children[0].innerText;
         const serviceNumber = 
         callBtn.parentNode.parentNode.children[2].children[0].innerText;
@@ -37,10 +40,24 @@ document.getElementById('all-card-box').addEventListener("click",(e)=>{
         
         `;
         historyBox.append(div);
+
+        
+        const currentCoin = Number(coinBox) - 20;
+        document.getElementById('coinBox').innerText = currentCoin;
+        // console.log(currentCoin);
         alert(`Calling ${serviceName} ${serviceNumber}..`);
+        }else {
+            alert(`You have not enough coin`)
+        };
+        
+
+
+
        
     }
 })
+
+// Clear Button
 
 document.getElementById("clear-history").addEventListener("click",()=>{
    document.getElementById('call-history-box').innerText = '';
