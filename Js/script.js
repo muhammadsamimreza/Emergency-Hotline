@@ -1,9 +1,11 @@
+// heart count functionality
 let heartCount = 0;
 document.getElementById("heartIcon").addEventListener("click", () => {
   heartCount += 1;
   const count = document.getElementById("heartIconCount");
   count.innerText = heartCount;
 });
+// copy count functinality //
 let totalCopy = 0;
 document.getElementById("copyBtn").addEventListener("click", () => {
   totalCopy += 1;
@@ -11,9 +13,12 @@ document.getElementById("copyBtn").addEventListener("click", () => {
   count.innerText = totalCopy;
 });
 
+
+//  Card section functinality ///
+
 document.getElementById("all-card-box").addEventListener("click", (e) => {
-  if (e.target.className.includes("call-button")) {
-    const callBtn = e.target;
+  const callBtn = e.target.closest(".call-button");
+  if (callBtn) {
     const coinBox = document.getElementById("coinBox").innerText;
 
     if (Number(coinBox) >= 19) {
@@ -42,15 +47,13 @@ document.getElementById("all-card-box").addEventListener("click", (e) => {
 
       const currentCoin = Number(coinBox) - 20;
       document.getElementById("coinBox").innerText = currentCoin;
-      // console.log(currentCoin);
+      
       alert(`Calling ${serviceName} ${serviceNumber}..`);
     } else {
       alert(`You have not enough coin for call at least 20 coin still`);
     }
   }
 });
-
-// Copy Button
 
 document.getElementById("copyBtn").addEventListener("click", () => {
   console.log("ddddddddd")
