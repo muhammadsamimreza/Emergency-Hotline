@@ -23,16 +23,16 @@
       <div class="flex items-center gap-2">
         <img src="./assets/logo.png" alt="" class="w-14" />
         <h1 class="font-extrabold text-2xl text-[#006747]">
-          Emergency <br />
+          Emergency <br/>
           Service
         </h1>
       </div>
       <div class="flex items-center gap-5 text-lg">
         <div
-          id="heartIcon"
+          
           class="bg-slate-100 w-24 h-7 rounded-3xl flex items-center justify-center gap-3 py-5"
         >
-          <span class="font-semibold">0</span>
+          <span id="heartIconCount" class="font-semibold">0</span>
           <img src="./assets/heart.png" alt="" class="w-7" />
         </div>
         <div
@@ -46,7 +46,7 @@
           id="totalCopy"
           class="bg-green-500 text-white w-24 h-7 rounded-3xl flex items-center justify-center gap-2 py-5 font-semibold"
         >
-          <span class="flex items-center">0</span>
+          <span id="copyCounter" class="flex items-center">0</span>
           <div class="flex justify-center items-center"><p>Copy</p></div>
         </div>
       </div>
@@ -83,7 +83,7 @@
                   <div class="bg-red-200 p-2 rounded-lg">
                     <img class="w-10" src="./assets/emergency.png " alt="" />
                   </div>
-                  <div>
+                  <div id="heartIcon">
                     <i class="fa-regular fa-heart text-3xl text-[#5c5c5c]"></i>
                   </div>
                 </div>
@@ -101,7 +101,7 @@
                 </div>
         
                 <div id="buttton" class="flex justify-between w-full gap-3 mt-4">
-                  <button class="btn btn-soft w-[45%] text-[#5c5c5c]"><i class="fa-regular fa-copy"></i>copy</button>
+                  <button id="copyBtn" class="btn btn-soft w-[45%] text-[#5c5c5c]"><i class="fa-regular fa-copy"></i>copy</button>
                     <button class="btn btn-soft btn-success w-[45%] bg-green-600 border-none text-white">
                         <i class="fa-solid fa-phone"></i>Call</button>
                 </div>
