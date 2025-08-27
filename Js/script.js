@@ -50,13 +50,12 @@ document.getElementById("all-card-box").addEventListener("click", (e) => {
       
       alert(`Calling ${serviceName} ${serviceNumber}..`);
     } else {
-      alert(`You have not enough coin for call at least 20 coin still`);
+      alert(`Not enough coin for call. Need at least 20 coin.`);
     }
   }
 });
-
+// Copy Button
 document.getElementById("copyBtn").addEventListener("click", () => {
-  console.log("ddddddddd")
   const codeBox = document.getElementById("serviceContact");
   const input = document.createElement("input");
     document.body.append(input);
@@ -68,6 +67,8 @@ document.getElementById("copyBtn").addEventListener("click", () => {
     document.body.removeChild(input);
     alert("Code Copied")
 });
+
+
 // Clear Button
 
 document.getElementById("clear-history").addEventListener("click", () => {
