@@ -1,17 +1,5 @@
-// heart count functionality
 let heartCount = 0;
-document.getElementById("heartIcon").addEventListener("click", () => {
-  heartCount += 1;
-  const count = document.getElementById("heartIconCount");
-  count.innerText = heartCount;
-});
-// copy count functinality //
 let totalCopy = 0;
-document.getElementById("copyBtn").addEventListener("click", () => {
-  totalCopy += 1;
-  const count = document.getElementById("copyCounter");
-  count.innerText = totalCopy;
-});
 
 //  Card section functinality ///
 
@@ -20,7 +8,7 @@ document.getElementById("all-card-box").addEventListener("click", (e) => {
   if (callBtn) {
     const coinBox = document.getElementById("coinBox").innerText;
 
-    if (Number(coinBox) >= 19) {
+    if (Number(coinBox) >= 20) {
       const serviceName =
         callBtn.parentNode.parentNode.children[1].children[0].innerText;
       const serviceNumber =
@@ -52,23 +40,35 @@ document.getElementById("all-card-box").addEventListener("click", (e) => {
       alert(`Not enough coin for call. Need at least 20 coin.`);
     }
   }
+  // copy count and copy code functinality //
   const copyButton = e.target.closest(".copyButton");
   if (copyButton) {
-    const codeBox = document.getElementById("serviceContact");
+    const codeBox = copyButton.parentNode.parentNode.children[2].children[0].innerText;
     const input = document.createElement("input");
     document.body.append(input);
 
-    input.value = codeBox.innerText;
+    input.value = codeBox;
 
     input.select();
     document.execCommand("copy");
     document.body.removeChild(input);
     alert("Code Copied");
+
+    totalCopy += 1;
+    const count = document.getElementById("copyCounter");
+    count.innerText = totalCopy;
+  
+  }
+  // heart count functionality
+  const heartButton = e.target.closest(".heartIcon");
+  if (heartButton) {
+    heartCount += 1;
+    const count = document.getElementById("heartIconCount");
+    count.innerText = heartCount;
   }
 });
 
-
-
+//  clear history functionality
 document.getElementById("clear-history").addEventListener("click", () => {
   document.getElementById("call-history-box").innerText = "";
 });
