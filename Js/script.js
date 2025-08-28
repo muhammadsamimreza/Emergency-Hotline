@@ -13,7 +13,6 @@ document.getElementById("copyBtn").addEventListener("click", () => {
   count.innerText = totalCopy;
 });
 
-
 //  Card section functinality ///
 
 document.getElementById("all-card-box").addEventListener("click", (e) => {
@@ -32,14 +31,14 @@ document.getElementById("all-card-box").addEventListener("click", (e) => {
       const historyBox = document.getElementById("call-history-box");
       const div = document.createElement("div");
       div.innerHTML = `
-        <div class="bg-gray-200 px-3 mt-2 rounded-lg w-full flex items-center justify-between ">
-              <div class="my-3 w-[70%]">
+        <div class="bg-gray-200 px-2 mt-2 rounded-lg w-full flex items-center justify-between ">
+              <div class="my-3 w-[67%]">
                 <h1 class="text-lg font-semibold">
                   ${serviceName}
                 </h1>
                 <p class="font-semibold text-[#5c5c5c] text-lg">${serviceNumber}</p>
               </div>
-              <div class="date font-medium text-[#5c5c5c]">${time}</div>
+              <div class="date text-base font-medium text-[#5c5c5c]">${time}</div>
             </div>
         
         `;
@@ -47,17 +46,16 @@ document.getElementById("all-card-box").addEventListener("click", (e) => {
 
       const currentCoin = Number(coinBox) - 20;
       document.getElementById("coinBox").innerText = currentCoin;
-      
+
       alert(`Calling ${serviceName} ${serviceNumber}..`);
     } else {
       alert(`Not enough coin for call. Need at least 20 coin.`);
     }
   }
-});
-// Copy Button
-document.getElementById("copyBtn").addEventListener("click", () => {
-  const codeBox = document.getElementById("serviceContact");
-  const input = document.createElement("input");
+  const copyButton = e.target.closest(".copyButton");
+  if (copyButton) {
+    const codeBox = document.getElementById("serviceContact");
+    const input = document.createElement("input");
     document.body.append(input);
 
     input.value = codeBox.innerText;
@@ -65,11 +63,11 @@ document.getElementById("copyBtn").addEventListener("click", () => {
     input.select();
     document.execCommand("copy");
     document.body.removeChild(input);
-    alert("Code Copied")
+    alert("Code Copied");
+  }
 });
 
 
-// Clear Button
 
 document.getElementById("clear-history").addEventListener("click", () => {
   document.getElementById("call-history-box").innerText = "";
